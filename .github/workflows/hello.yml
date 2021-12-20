@@ -4,8 +4,9 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        working-directory: .
+      - name: checkout repo
+        uses: actions/checkout@v2
+      -name : make lint
         run: make lint
-        
+
       
