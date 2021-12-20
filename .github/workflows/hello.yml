@@ -6,5 +6,6 @@ jobs:
     steps:
       - name: my-step
         working-directory: .
-        run: pwd
+        run: make lint
+        
       
