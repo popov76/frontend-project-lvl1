@@ -14,7 +14,7 @@ export const getQuestions = (numQuestions) => {
     for (let j = 0; j < numTerms; j += 1) {
       const currentTerm = firstTerm + diff * j;
       if (j === missingTermNum) {
-        resultString = `${resultString} ...`;
+        resultString = `${resultString} ..`;
         missingTerm = currentTerm;
       } else {
         resultString = `${resultString} ${currentTerm}`;
