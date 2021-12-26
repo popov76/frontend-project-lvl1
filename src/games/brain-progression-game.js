@@ -8,7 +8,7 @@ export const getQuestions = (numQuestions) => {
     const firstTerm = getRandomNumber(1, magicNumber);
     const diff = getRandomNumber(1, magicNumber);
     const numTerms = 5 + getRandomNumber(0, magicNumber);
-    const missingTermNum = getRandomNumber(0, numTerms) - 1;
+    const missingTermNum = getRandomNumber(0, numTerms - 1);
     let resultString = '';
     let missingTerm = firstTerm;
     for (let j = 0; j < numTerms; j += 1) {
