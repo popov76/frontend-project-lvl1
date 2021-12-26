@@ -27,7 +27,7 @@ export const playGame = (questions, header) => {
     roundCount += 1;
   } while (!error && roundCount < maxRounds);
   if (!error) {
-    console.log(`Congratulations, ${playerName}`);
+    console.log(`Congratulations, ${playerName}!`);
   } else {
     console.log(`Let's try again, ${playerName}`);
   }
