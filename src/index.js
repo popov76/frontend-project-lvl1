@@ -10,10 +10,10 @@ const playRound = (question) => {
   let answer = readLineSync.question('Your anwser: ');
   answer = String(answer).trim(answer);
   if (answer === correctAnswer) {
-    console.log('Correct');
+    console.log('Correct!');
   } else {
     error = true;
-    console.log(`'${answer}' is wrong answer ;( Correct answer was '${correctAnswer}'`);
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
   }
   return error;
 };
