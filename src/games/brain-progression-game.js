@@ -20,7 +20,7 @@ export const getQuestions = (numQuestions) => {
         resultString = `${resultString} ${currentTerm}`;
       }
     }
-    questions.push([resultString, String(missingTerm)]);
+    questions.push([resultString.trim(), String(missingTerm)]);
   }
   return questions;
 };
