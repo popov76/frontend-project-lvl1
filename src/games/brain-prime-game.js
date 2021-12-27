@@ -15,7 +15,7 @@ const isPrime = (num) => {
 export const getQuestions = (numQuestions) => {
   const questions = [];
   for (let i = 0; i < numQuestions; i += 1) {
-    const num = getRandomNumber(1, magicNumber);
+    const num = getRandomNumber(2, magicNumber);
     questions.push([num, (isPrime(num) ? 'yes' : 'no')]);
   }
   return questions;
