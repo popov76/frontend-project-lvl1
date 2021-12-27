@@ -1,6 +1,6 @@
-const magicNumber = 10;
+import getRandomNumber from '../random.js';
 
-const getRandomNumber = (min, max) => Math.floor(min + Math.random() * (max - min));
+const magicNumber = 10;
 
 export const getQuestions = (numQuestions) => {
   const questions = [];

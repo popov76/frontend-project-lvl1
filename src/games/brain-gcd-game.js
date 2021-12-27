@@ -1,3 +1,5 @@
+import getRandomNumber from '../random.js';
+
 const gcd = (a, b) => {
   let al = a;
   let bl = b;
@@ -13,8 +15,8 @@ export const getQuestions = (numQuestions) => {
   const maxNumber = 25;
   const questions = [];
   for (let i = 1; i <= numQuestions; i += 1) {
-    const randomNumber1 = Math.round(Math.random() * maxNumber);
-    const randomNumber2 = Math.round(Math.random() * maxNumber);
+    const randomNumber1 = getRandomNumber(1, maxNumber);
+    const randomNumber2 = getRandomNumber(1, maxNumber);
     const correctAnswer = gcd(randomNumber1, randomNumber2);
     questions.push([`${randomNumber1} ${randomNumber2}`, String(correctAnswer)]);
   }

@@ -1,10 +1,12 @@
+import getRandomNumber from '../random.js';
+
 const isEven = (num) => num % 2 === 0;
 
 export const getQuestions = (numQuestions) => {
   const maxNumber = 42;
   const questions = [];
   for (let i = 1; i <= numQuestions; i += 1) {
-    const randomNumber = Math.round(Math.random() * maxNumber);
+    const randomNumber = getRandomNumber(0, maxNumber);
     const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
     questions.push([randomNumber, correctAnswer]);
   }
