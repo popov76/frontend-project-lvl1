@@ -1,4 +1,7 @@
 import getRandomNumber from '../random.js';
+import { maxRounds, playGame } from '../index.js';
+
+export const header = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (num) => num % 2 === 0;
 
@@ -13,4 +16,8 @@ export const getQuestions = (numQuestions) => {
   return questions;
 };
 
-export const header = 'Answer "yes" if the number is even, otherwise answer "no".';
+const playEvenGame = () => {
+  playGame(getQuestions(maxRounds), header);
+};
+
+export default playEvenGame;
