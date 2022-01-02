@@ -5,10 +5,10 @@ export const header = 'Answer "yes" if the number is even, otherwise answer "no"
 
 const isEven = (num) => num % 2 === 0;
 
-export const getQuestions = (numQuestions) => {
+export const getQuestions = () => {
   const maxNumber = 42;
   const questions = [];
-  for (let i = 1; i <= numQuestions; i += 1) {
+  for (let i = 1; i <= maxRounds; i += 1) {
     const randomNumber = getRandomNumber(0, maxNumber);
     const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
     questions.push([randomNumber, correctAnswer]);
@@ -17,7 +17,7 @@ export const getQuestions = (numQuestions) => {
 };
 
 const playEvenGame = () => {
-  playGame(getQuestions(maxRounds), header);
+  playGame(getQuestions(), header);
 };
 
 export default playEvenGame;

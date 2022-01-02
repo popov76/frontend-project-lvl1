@@ -13,17 +13,17 @@ const isPrime = (num) => {
   return d * d > num;
 };
 
-export const getQuestions = (numQuestions) => {
+export const getQuestions = () => {
   const questions = [];
-  for (let i = 0; i < numQuestions; i += 1) {
-    const num = getRandomNumber(2, maxNumber);
-    questions.push([num, (isPrime(num) ? 'yes' : 'no')]);
+  for (let i = 0; i < maxRounds; i += 1) {
+    const number = getRandomNumber(2, maxNumber);
+    questions.push([number, (isPrime(number) ? 'yes' : 'no')]);
   }
   return questions;
 };
 
 const playPrimeGame = () => {
-  playGame(getQuestions(maxRounds), header);
+  playGame(getQuestions(), header);
 };
 
 export default playPrimeGame;

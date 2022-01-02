@@ -7,8 +7,7 @@ export const playGame = (questionsAndAnswers, header) => {
   const playerName = readLineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!`);
   console.log(header);
-  let error = false;
-  for (let roundCount = 0; !error && roundCount < maxRounds; roundCount += 1) {
+  for (let roundCount = 0; roundCount < maxRounds; roundCount += 1) {
     const [question, correctAnswer] = questionsAndAnswers[roundCount];
     console.log(`Question: ${question}`);
     let answer = readLineSync.question('Your anwser: ');
@@ -16,13 +15,10 @@ export const playGame = (questionsAndAnswers, header) => {
     if (answer === correctAnswer) {
       console.log('Correct!');
     } else {
-      error = true;
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
+      console.log(`Let's try again, ${playerName}!`);
+      return;
     }
   }
-  if (!error) {
-    console.log(`Congratulations, ${playerName}!`);
-  } else {
-    console.log(`Let's try again, ${playerName}!`);
-  }
+  console.log(`Congratulations, ${playerName}!`);
 };

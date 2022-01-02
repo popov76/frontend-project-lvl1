@@ -4,34 +4,31 @@ import { maxRounds, playGame } from '../index.js';
 const maxTerms = 10;
 const header = 'What number is missing in the progression?';
 
-const getProgression = (firstTerm, numTerms, diff, missingTermNum) => {
-  let resultString = '';
-  let missingTerm = firstTerm;
+const getProgression = (firstTerm, numTerms, diff) => {
+  const resultArr = [];
   for (let j = 0; j < numTerms; j += 1) {
-    const currentTerm = firstTerm + diff * j;
-    if (j === missingTermNum) {
-      resultString = `${resultString} ..`;
-      missingTerm = currentTerm;
-    } else {
-      resultString = `${resultString} ${currentTerm}`;
-    }
+    resultArr.push(firstTerm + diff * j);
   }
-  return [resultString.trim(), String(missingTerm)];
+  return resultArr;
 };
 
-const getQuestions = (numQuestions) => {
+const getQuestions = () => {
   const questions = [];
-  for (let i = 0; i < numQuestions; i += 1) {
+  for (let i = 0; i < maxRounds; i += 1) {
     const firstTerm = getRandomNumber(1, maxTerms);
     const diff = getRandomNumber(1, maxTerms);
     const numTerms = 5 + getRandomNumber(0, maxTerms);
     const missingTermNum = getRandomNumber(0, numTerms - 1);
-    questions.push(getProgression(firstTerm, numTerms, diff, missingTermNum));
+    const progressionArray = getProgression(firstTerm, numTerms, diff);
+    const anwswer = String(progressionArray[missingTermNum - 1]);
+    progressionArray[missingTermNum - 1] = '..';
+    const question = progressionArray.join(' ');
+    questions.push([question, anwswer]);
   }
   return questions;
 };
 
 const playProgressionGame = () => {
-  playGame(getQuestions(maxRounds), header);
+  playGame(getQuestions(), header);
 };
 export default playProgressionGame;

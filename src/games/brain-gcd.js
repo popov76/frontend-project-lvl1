@@ -4,29 +4,27 @@ import { playGame, maxRounds } from '../index.js';
 const header = 'Find the greatest common divisor of given numbers.';
 
 const gcd = (a, b) => {
-  let al = a;
-  let bl = b;
-  if (bl > al) {
-    bl = al + bl;
-    al = bl - al;
-    bl -= al;
+  let number1 = a;
+  let number2 = b;
+  if (number2 > number1) {
+    [number1, number2] = [number2, number1];
   }
-  return (bl === 0) ? al : gcd(bl, al % bl);
+  return (number2 === 0) ? number1 : gcd(number2, number1 % number2);
 };
 
-export const getQuestions = (numQuestions) => {
+export const getQuestions = () => {
   const maxNumber = 25;
   const questions = [];
-  for (let i = 1; i <= numQuestions; i += 1) {
-    const randomNumber1 = getRandomNumber(1, maxNumber);
-    const randomNumber2 = getRandomNumber(1, maxNumber);
-    const correctAnswer = gcd(randomNumber1, randomNumber2);
-    questions.push([`${randomNumber1} ${randomNumber2}`, String(correctAnswer)]);
+  for (let i = 1; i <= maxRounds; i += 1) {
+    const number1 = getRandomNumber(1, maxNumber);
+    const number2 = getRandomNumber(1, maxNumber);
+    const correctAnswer = gcd(number1, number2);
+    questions.push([`${number1} ${number2}`, String(correctAnswer)]);
   }
   return questions;
 };
 
 const playGcdGame = () => {
-  playGame(getQuestions(maxRounds), header);
+  playGame(getQuestions(), header);
 };
 export default playGcdGame;
