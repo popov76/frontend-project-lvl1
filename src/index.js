@@ -10,8 +10,7 @@ export const playGame = (questionsAndAnswers, header) => {
   for (let roundCount = 0; roundCount < maxRounds; roundCount += 1) {
     const [question, correctAnswer] = questionsAndAnswers[roundCount];
     console.log(`Question: ${question}`);
-    let answer = readLineSync.question('Your anwser: ');
-    answer = String(answer).trim(answer);
+    const answer = readLineSync.question('Your anwser: ').trim();
     if (answer === correctAnswer) {
       console.log('Correct!');
     } else {

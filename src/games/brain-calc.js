@@ -5,21 +5,16 @@ const header = 'What is the result of the expression?';
 const operations = ['+', '-', '*'];
 
 const calculate = (number1, operation, number2) => {
-  let answer;
   switch (operation) {
     case '+':
-      answer = number1 + number2;
-      break;
+      return number1 + number2;
     case '-':
-      answer = number1 - number2;
-      break;
+      return number1 - number2;
     case '*':
-      answer = number1 * number2;
-      break;
+      return number1 * number2;
     default:
       throw new Error(`unknown operation ${operation}`);
   }
-  return answer;
 };
 
 const getQuestions = () => {

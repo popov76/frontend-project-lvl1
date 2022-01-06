@@ -6,17 +6,18 @@ export const header = 'Answer "yes" if given number is prime. Otherwise answer "
 const maxNumber = 42;
 
 const isPrime = (num) => {
-  let d = 2;
-  while (d * d < num && num % d !== 0) {
-    d += 1;
+  if (num < 2) return false;
+  let divisor = 2;
+  while (divisor * divisor < num && num % divisor !== 0) {
+    divisor += 1;
   }
-  return d * d > num;
+  return divisor * divisor > num;
 };
 
 export const getQuestions = () => {
   const questions = [];
   for (let i = 0; i < maxRounds; i += 1) {
-    const number = getRandomNumber(2, maxNumber);
+    const number = getRandomNumber(1, maxNumber);
     questions.push([number, (isPrime(number) ? 'yes' : 'no')]);
   }
   return questions;
