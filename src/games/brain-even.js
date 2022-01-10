@@ -1,14 +1,14 @@
 import getRandomNumber from '../random.js';
-import { maxRounds, playGame } from '../index.js';
+import { maxRoundsCount, playGame } from '../index.js';
 
-export const header = 'Answer "yes" if the number is even, otherwise answer "no".';
+const header = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (num) => num % 2 === 0;
 
-export const getQuestions = () => {
+export const getQuestionsAndAnswers = () => {
   const maxNumber = 42;
   const questions = [];
-  for (let i = 1; i <= maxRounds; i += 1) {
+  for (let i = 1; i <= maxRoundsCount; i += 1) {
     const randomNumber = getRandomNumber(0, maxNumber);
     const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
     questions.push([randomNumber, correctAnswer]);
@@ -17,7 +17,7 @@ export const getQuestions = () => {
 };
 
 const playEvenGame = () => {
-  playGame(getQuestions(), header);
+  playGame(getQuestionsAndAnswers(), header);
 };
 
 export default playEvenGame;

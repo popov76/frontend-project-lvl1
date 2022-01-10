@@ -1,5 +1,5 @@
 import getRandomNumber from '../random.js';
-import { maxRounds, playGame } from '../index.js';
+import { maxRoundsCount, playGame } from '../index.js';
 
 const maxTerms = 10;
 const maxNum = 7;
@@ -13,9 +13,9 @@ const getProgression = (firstTerm, numTerms, diff) => {
   return resultArr;
 };
 
-const getQuestions = () => {
+const getQuestionsAndAnswers = () => {
   const questions = [];
-  for (let i = 0; i < maxRounds; i += 1) {
+  for (let i = 0; i < maxRoundsCount; i += 1) {
     const firstTerm = getRandomNumber(1, maxNum);
     const diff = getRandomNumber(1, maxNum);
     const numTerms = 5 + getRandomNumber(0, maxTerms - 5);
@@ -30,6 +30,6 @@ const getQuestions = () => {
 };
 
 const playProgressionGame = () => {
-  playGame(getQuestions(), header);
+  playGame(getQuestionsAndAnswers(), header);
 };
 export default playProgressionGame;

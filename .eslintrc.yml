@@ -1,15 +1,13 @@
 env:
-  browser: true
+  browser: false
   es2021: true
 extends:
   - airbnb
 parserOptions:
   ecmaFeatures:
-    jsx: true
+    jsx: false
   ecmaVersion: 13
   sourceType: module
-plugins:
-  - react
 rules: {
   "no-console": ["off", "always"],
   "import/extensions": ["off", "always"]

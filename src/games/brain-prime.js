@@ -1,22 +1,22 @@
 import getRandomNumber from '../random.js';
-import { playGame, maxRounds } from '../index.js';
+import { playGame, maxRoundsCount } from '../index.js';
 
-export const header = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const header = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const maxNumber = 42;
 
 const isPrime = (num) => {
   if (num < 2) return false;
   let divisor = 2;
-  while (divisor * divisor < num && num % divisor !== 0) {
+  while (num % divisor !== 0) {
     divisor += 1;
   }
-  return divisor * divisor > num;
+  return divisor === num;
 };
 
-export const getQuestions = () => {
+export const getQuestionsAndAnswers = () => {
   const questions = [];
-  for (let i = 0; i < maxRounds; i += 1) {
+  for (let i = 0; i < maxRoundsCount; i += 1) {
     const number = getRandomNumber(1, maxNumber);
     questions.push([number, (isPrime(number) ? 'yes' : 'no')]);
   }
@@ -24,7 +24,7 @@ export const getQuestions = () => {
 };
 
 const playPrimeGame = () => {
-  playGame(getQuestions(), header);
+  playGame(getQuestionsAndAnswers(), header);
 };
 
 export default playPrimeGame;
